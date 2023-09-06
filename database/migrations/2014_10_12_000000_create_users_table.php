@@ -6,25 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+    // 用户表
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('user', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
+            $table->string('passport', 32)->nullable()->unique();
+            $table->string('phone', 11)->nullable()->unique();
+            $table->string('email', 64)->nullable()->unique();
             $table->string('password');
+            $table->string('nickname');
+            $table->string('avatar')->nullable()->comment('头像');
+            $table->unsignedTinyInteger('gender')->default(0)->comment("性别 0 未知 1 男 2 女");
+            $table->string('signature')->nullable()->comment('签名');
+            $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('users');
