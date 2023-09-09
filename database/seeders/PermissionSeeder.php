@@ -50,7 +50,7 @@ class PermissionSeeder extends Seeder
                         'path'       => 'dashboard',
                         'icon'       => '',
                         'title'      => '仪表盘',
-                        'component'  => 'home/dashboard',
+                        'component'  => '',
                         'hidden'     => 0,
                         'keep_alive'    => 0,
                         'redirect'   => '',
