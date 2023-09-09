@@ -14,9 +14,14 @@ class User extends Authenticatable
 
     protected $table = 'user';
 
-    protected $fillable = ['passport', 'phone', 'email', 'password', 'nickname', 'avatar', 'gender', 'signature', 'email_verified_at'];
+    protected $fillable = ['account', 'phone', 'email', 'password', 'nickname', 'avatar', 'gender', 'signature', 'email_verified_at'];
 
     protected $hidden = ['password','remember_token'];
 
     protected $casts = ['email_verified_at' => 'datetime', 'password' => 'hashed'];
+
+    public function userExtend()
+    {
+        return $this->hasOne(User::class, 'user_id', 'id');
+    }
 }
