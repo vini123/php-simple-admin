@@ -14,8 +14,6 @@ class User extends Authenticatable
 
     use HasRoles;
 
-    protected $table = 'user';
-
     protected $fillable = ['account', 'phone', 'email', 'password', 'nickname', 'avatar', 'gender', 'signature', 'email_verified_at'];
 
     protected $hidden = ['password','remember_token'];

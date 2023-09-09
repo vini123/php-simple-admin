@@ -9,7 +9,7 @@ return new class extends Migration
     // 用户表
     public function up(): void
     {
-        Schema::create('user', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('account', 32)->nullable()->unique();
             $table->string('phone', 11)->nullable()->unique();
